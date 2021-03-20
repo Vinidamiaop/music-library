@@ -1,0 +1,39 @@
+*,
+body,
+p,
+ul,
+li,
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+body {
+  height: 100vh;
+  font-family: $font;
+  background: linear-gradient(135deg, $primary-color, $secondary-color) center
+    center no-repeat;
+  overflow: hidden;
+  @include d(m) {
+    overflow-y: auto;
+    height: fit-content;
+  }
+  @include d(s) {
+    height: fit-content;
+    overflow-y: auto;
+    background: $primary-color;
+  }
+}
+
+img {
+  width: 100%;
+}

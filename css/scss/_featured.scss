@@ -1,0 +1,50 @@
+.search {
+  grid-column: 1/-1;
+  margin-top: $gutter;
+  input {
+    width: 250px;
+    background: none;
+    border: none;
+    outline: none;
+    color: $white;
+    &::placeholder,
+    &::-moz-placeholder,
+    &::-webkit-input-placeholder {
+      color: $white;
+    }
+  }
+  &::before {
+    @include before-e-after(15px, "../../img/search.svg");
+    margin-right: $gutter;
+  }
+}
+.featured {
+  grid-column: 1/-1;
+  h1 {
+    @include title(h1);
+  }
+  p {
+    @include type-p;
+  }
+  ul {
+    display: flex;
+  }
+
+  .featured-wrapper {
+    max-width: 1000px;
+    @include wrapper;
+    @include scrollbar;
+  }
+
+  .img-container {
+    @include carrossel-wrapper(330, 200);
+  }
+
+  img {
+    @include carrossel-image;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

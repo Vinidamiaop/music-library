@@ -1,0 +1,42 @@
+.profile-views {
+  grid-column: 1;
+  max-width: 300px;
+  h1 {
+    @include title(h1);
+  }
+  h2 {
+    @include title(h2);
+  }
+  p {
+    @include type-p;
+  }
+
+  ul li {
+    display: flex;
+    align-items: center;
+    > p {
+      width: 100%;
+      text-align: right;
+    }
+  }
+
+  .info {
+    margin-left: $gutter;
+    width: 100%;
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+    @include object-fit(cover, top);
+    border-radius: $img-border-radius;
+  }
+  @include d(m) {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+  @include d(s) {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}

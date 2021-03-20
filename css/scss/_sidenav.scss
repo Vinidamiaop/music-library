@@ -1,0 +1,151 @@
+.sidenav {
+  grid-column: 1;
+  display: grid;
+  grid-template-rows: minmax(100px, 150px) 1fr;
+  align-items: start;
+  @include d(s) {
+    grid-column: 1 /-1;
+    grid-row: 2;
+    justify-items: center;
+    width: 100%;
+    height: 100px;
+  }
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  padding: $gutter;
+
+  img {
+    max-width: 60px;
+    max-height: 60px;
+    object-fit: cover;
+    margin-right: $gutter;
+    border-radius: 5px;
+  }
+  h1 {
+    font-size: em(14);
+    color: $white;
+    display: block;
+  }
+  p {
+    font-size: em(12);
+    color: $white;
+    &::after {
+      @include before-e-after(13px, "../../img/config.svg");
+      margin-left: $gutter;
+    }
+  }
+
+  .btnMenu {
+    display: none;
+  }
+
+  @include d(s) {
+    grid-row: 2;
+    width: 100%;
+    height: 100px;
+    background: $primary-color;
+    position: fixed;
+    bottom: 0;
+
+    .btnMenu {
+      display: inline-block;
+      position: absolute;
+      right: 40px;
+      width: 25px;
+      img {
+        border-radius: 0px;
+      }
+    }
+  }
+}
+
+.menu {
+  grid-row: 2;
+  margin-top: 80px;
+  ul {
+    border-top: 1px solid $white;
+    padding: $gutter * 2;
+    li {
+      align-items: center;
+      padding: 3px;
+    }
+  }
+  a {
+    font-size: em(12);
+    color: rgba(255, 255, 255, 0.479);
+    @include transition(color 0.3s);
+
+    &:hover {
+      color: #fff;
+    }
+  }
+  .overview::before {
+    @include before-e-after(15px, "../../img/overview.svg");
+    margin-right: $gutter;
+  }
+  .news::before {
+    @include before-e-after(15px, "../../img/news.svg");
+    margin-right: $gutter;
+  }
+  .playlists::before {
+    @include before-e-after(15px, "../../img/playlist.svg");
+    margin-right: $gutter;
+  }
+  .discover::before {
+    @include before-e-after(15px, "../../img/compass.svg");
+    margin-right: $gutter;
+  }
+  .dashboard::before {
+    @include before-e-after(15px, "../../img/settings.svg");
+    margin-right: $gutter;
+  }
+  .messages::before {
+    @include before-e-after(15px, "../../img/message.svg");
+    margin-right: $gutter;
+  }
+  .notifications::before {
+    @include before-e-after(15px, "../../img/notifications.svg");
+    margin-right: $gutter;
+  }
+  .account::before {
+    @include before-e-after(15px, "../../img/account.svg");
+    margin-right: $gutter;
+  }
+  .btnClose {
+    display: none;
+    width: 20px;
+    padding: 10px;
+  }
+  @include d(s) {
+    display: none;
+    grid-column: 1 /-1;
+    margin-top: 0;
+
+    &.active {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      position: absolute;
+      width: 100vw;
+      height: 100vmax;
+      top: 0px;
+      left: 0px;
+      animation: menuAnima ease-in-out 0.3s;
+      margin-top: 0;
+      background-color: $primary-color;
+      ul {
+        border: none;
+      }
+      .btnClose {
+        display: block;
+        position: absolute;
+        top: 30px;
+        right: 40px;
+      }
+    }
+  }
+}

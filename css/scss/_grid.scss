@@ -1,0 +1,31 @@
+.container {
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) 2fr 2fr;
+  gap: $gutter;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  @include d(s) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.content {
+  grid-column: 2/-1;
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) 1fr;
+  gap: $gutter;
+  justify-content: center;
+  align-content: space-around;
+  background: linear-gradient(45deg, $primary-color, $secondary-color) center
+    center no-repeat;
+  padding: $gutter;
+  height: 100vh;
+  @include d(m) {
+    height: fit-content;
+  }
+  @include d(s) {
+    height: fit-content;
+    grid-column: 1/-1;
+  }
+}

@@ -1,0 +1,142 @@
+// Variaveis
+$primary-color: #040517;
+$secondary-color: rgb(32, 15, 86);
+$white: #e5e5e5e7;
+$scrollbar-track: rgb(32, 15, 86);
+$scrollbar-thumb: rgb(85, 6, 138);
+
+$gutter: 10px;
+
+$font: "Montserrat", "Helvetica", Arial, sans-serif;
+
+$img-border-radius: 3%;
+
+$large: 960;
+$medium: 760;
+$small: 480;
+
+// Mixins
+@mixin border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin d($size) {
+  @if $size == l {
+    @media (min-width: #{$large}px) {
+      @content;
+    }
+  } @else if $size == m {
+    @media (min-width: #{$medium}px) and (max-width: #{$large - 1}px) {
+      @content;
+    }
+  } @else if $size == s {
+    @media (max-width: #{$medium - 1}px) {
+      @content;
+    }
+  }
+}
+
+@function em($pixel, $contexto: 16) {
+  @return $pixel / $contexto + em;
+}
+
+@mixin title($type) {
+  @if $type == h1 {
+    font-size: em(16);
+    color: $white;
+    line-height: 20px;
+    margin-top: $gutter;
+    margin-bottom: $gutter;
+  }
+  @if $type == h2 {
+    font-size: em(12);
+    color: $white;
+    line-height: 10px;
+    margin-top: $gutter;
+    margin-bottom: $gutter;
+  }
+}
+
+@mixin type-p {
+  font-size: em(12);
+  color: $white;
+  line-height: 10px;
+  margin-bottom: $gutter;
+}
+
+@mixin wrapper {
+  overflow: auto;
+  ul li + li {
+    margin-left: $gutter;
+  }
+}
+
+@mixin carrossel-wrapper($width, $height) {
+  display: inline-block;
+  width: $width + px;
+  height: $height + px;
+  overflow: hidden;
+  border-radius: $img-border-radius;
+}
+
+@mixin object-fit($type, $position: center) {
+  object-fit: $type;
+  object-position: $position;
+}
+
+@mixin carrossel-image {
+  @include object-fit(cover);
+  transition: 0.3s;
+}
+
+@mixin scrollbar {
+  overflow-x: scroll;
+  scrollbar-color: $scrollbar-thumb $scrollbar-track;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $scrollbar-track;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-thumb;
+    border-radius: 10px;
+  }
+}
+
+@mixin before-e-after($size, $path, $content: "") {
+  content: $content;
+  display: inline-block;
+  background: url(#{$path}) center center no-repeat;
+  width: $size;
+  height: $size;
+}
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  transition: $transition;
+}
+
+// Animations
+@keyframes menuAnima {
+  from {
+    transform: translate3d(0px, 500px, 0px);
+  }
+  to {
+    transform: translate3d(0px, 0px, 0px);
+  }
+}
+@keyframes menuAnimaOut {
+  from {
+    transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    transform: translate3d(0px, 500px, 0px);
+  }
+}

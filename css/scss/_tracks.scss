@@ -1,0 +1,32 @@
+.tracks {
+  grid-column: 2 / -1;
+  overflow: hidden;
+  h1 {
+    @include title(h1);
+  }
+  p {
+    @include type-p;
+  }
+  ul {
+    display: flex;
+  }
+  .track-wrapper {
+    @include wrapper;
+    @include scrollbar;
+  }
+  .img-container {
+    @include carrossel-wrapper(150, 100);
+  }
+  img {
+    @include carrossel-image;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  @include d(m) {
+    grid-column: 1 / -1;
+  }
+  @include d(s) {
+    grid-column: 1 / -1;
+  }
+}
