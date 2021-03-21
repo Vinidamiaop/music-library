@@ -22,10 +22,10 @@
   padding: $gutter;
   height: 100vh;
   @include d(m) {
-    height: fit-content;
+    @include fit-content;
   }
   @include d(s) {
-    height: fit-content;
     grid-column: 1/-1;
+    @include fit-content;
   }
 }

@@ -11,7 +11,7 @@ $font: "Montserrat", "Helvetica", Arial, sans-serif;
 
 $img-border-radius: 3%;
 
-$large: 960;
+$large: 1100;
 $medium: 760;
 $small: 480;
 
@@ -20,6 +20,12 @@ $small: 480;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+@mixin fit-content {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 @mixin d($size) {
@@ -49,6 +55,9 @@ $small: 480;
     line-height: 20px;
     margin-top: $gutter;
     margin-bottom: $gutter;
+    @include d(m) {
+      margin-top: $gutter / 2;
+    }
   }
   @if $type == h2 {
     font-size: em(12);
@@ -67,7 +76,6 @@ $small: 480;
 }
 
 @mixin wrapper {
-  overflow: auto;
   ul li + li {
     margin-left: $gutter;
   }

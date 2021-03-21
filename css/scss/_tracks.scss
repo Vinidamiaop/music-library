@@ -1,6 +1,7 @@
 .tracks {
   grid-column: 2 / -1;
   overflow: hidden;
+  @include fit-content;
   h1 {
     @include title(h1);
   }
