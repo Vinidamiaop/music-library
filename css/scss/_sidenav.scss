@@ -50,6 +50,7 @@
     background: $primary-color;
     position: fixed;
     bottom: 0;
+    z-index: 2;
 
     .btnMenu {
       display: inline-block;
@@ -124,11 +125,15 @@
     display: none;
     grid-column: 1 /-1;
     margin-top: 0;
+    z-index: 3;
 
     &.active {
       display: flex;
+      flex: 1;
       flex-flow: column;
       justify-content: center;
+      align-content: center;
+      align-items: center;
       position: absolute;
       width: 100vw;
       height: 100vmax;
@@ -137,14 +142,26 @@
       animation: menuAnima ease-in-out 0.3s;
       margin-top: 0;
       background-color: $primary-color;
+      ul:nth-child(2) {
+        margin-top: -100px;
+      }
       ul {
         border: none;
+        min-width: 150px;
+
+        li {
+          padding: 6px;
+        }
+      }
+      a {
+        font-size: em(16);
       }
       .btnClose {
         display: block;
         position: absolute;
         top: 30px;
         right: 40px;
+        animation: animaBtn ease-in 0.4s;
       }
     }
   }
