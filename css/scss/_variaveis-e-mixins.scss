@@ -50,7 +50,9 @@ $small: 480;
 
 @mixin title($type) {
   @if $type == h1 {
+    font-family: $font;
     font-size: em(16);
+    font-weight: bold;
     color: $white;
     line-height: 20px;
     margin-top: $gutter;
@@ -60,6 +62,8 @@ $small: 480;
     }
   }
   @if $type == h2 {
+    font-family: $font;
+    font-weight: bold;
     font-size: em(12);
     color: $white;
     line-height: 10px;

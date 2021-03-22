@@ -26,7 +26,8 @@
     border-radius: 5px;
   }
   h1 {
-    font-size: em(14);
+    @include title(h1);
+    margin: 0px;
     color: $white;
     display: block;
   }
@@ -66,9 +67,19 @@
 
 .menu {
   grid-row: 2;
-  margin-top: 80px;
+  margin-top: 5px;
   ul {
-    border-top: 1px solid $white;
+    &::before {
+      content: "";
+      display: inline-block;
+      background: $white;
+      width: 150px;
+      height: 1px;
+      margin-bottom: 20px;
+      @include d(s) {
+        display: none;
+      }
+    }
     padding: $gutter * 2;
     li {
       align-items: center;
